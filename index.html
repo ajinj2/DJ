@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.1/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-black relative">
+    <button id="fireButton" class="bg-red-500 text-white px-6 py-3 rounded-lg text-xl font-bold shadow-lg hover:bg-red-700 transition">Click Here DJ Kutty💌</button>
+    
+    <div id="message" class="hidden absolute inset-0 flex items-center justify-center text-center text-white text-4xl font-bold bg-black bg-opacity-70">
+        Happy Valentine's Day and Happy Anniversary My Dear Kudapi ❤️
+    </div>
+
+    <script>
+        document.getElementById("fireButton").addEventListener("click", function() {
+            // Firecracker effect
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    confetti({
+                        particleCount: 100,
+                        spread: 70,
+                        origin: { x: Math.random(), y: Math.random() }
+                    });
+                }, i * 50);
+            }
+            
+            // Show the message after fireworks start
+            setTimeout(() => {
+                document.getElementById("message").classList.remove("hidden");
+                document.getElementById("fireButton").classList.add("hidden");
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
